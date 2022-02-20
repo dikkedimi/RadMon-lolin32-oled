@@ -1,0 +1,68 @@
+#define TIMEZONE 2
+// Needed for wemos D32 Oled
+#define SDA 5
+#define SCL 4
+#define SCREEN_ADDRESS 0x3C //
+#define OLED_RESET -1
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+
+// CajoeV1.1 vars
+#define Interval 1500
+#define tubeIndex 151
+#define PulsePin 25
+#define LOG_PERIOD 10
+#define MAX_PERIOD 60
+#define ENTRIES (MAX_PERIOD / LOG_PERIOD)
+
+#define SEND_TO_RADMON      true        // CPM will be sent to Radmon.org
+#define SEND_TO_BLYNK       false         // all fields will be sent to Blynk
+#define SEND_TO_HTTP        false        // all fields will be sent to HTTP
+#define PRINT_TO_SERIAL     false        // prints the current CPM every second to serial.
+
+// #define debug_Startup            true
+#define debug_Display            false
+#define debug_Radmon             false
+#define debug_Blynk              false
+#define debug_HTTP               false
+#define debug_BME280             false
+#define debug_CPMcalc            false
+#define debug_Buttons            false
+
+const char* ssid     = "SSID";
+const char* WiFipass = "PSK";
+
+const char *time_server = "nl.pool.ntp.org";
+
+const char *mqtt_server = "192.168.1.255";
+const unsigned int mqtt_port = 1883;
+const char *topic = "sensors/RadBoy";
+
+// const char *RadmonServer = "80.229.27.195"; // RADMON.ORG IP, CHECK THIS
+
+const char *RadmonUser = "user";
+const char *RadmonPass = "pass";
+const char* RadmonHost = "radmon.org"; // No need to change this
+
+const int publishInterval = 1000;
+
+struct strConfig {
+  bool useRM = SEND_TO_RADMON;
+  bool useBL = SEND_TO_BLYNK;
+  bool useHT = SEND_TO_HTTP;
+  bool cpmSerialOn = PRINT_TO_SERIAL;
+  // bool useBME280 = USE_BME280;
+  // bool adr77 = USE_ADR77;
+  // bool useBAR = USE_BAR;
+  // bool useCelsius = CELSIUS;
+  // bool debugStartup = debug_Startup;
+  bool debugDisplay = debug_Display;
+  bool debugRadmon = debug_Radmon;
+  bool debugBlynk = debug_Blynk;
+  bool debugHTTP = debug_HTTP;
+  bool debugBME280 = debug_BME280;
+  bool debugCPMcalc = debug_CPMcalc;
+  bool debugButtons = debug_Buttons;
+  // long elevation = ELEVATION;
+  ;
+}   config;
