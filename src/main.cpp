@@ -92,12 +92,11 @@ void threadUpdateRadmonCallback() {
     if (config.debugRadmon) {
       Serial.println("Sending data....");
     }
-    // if (config.debugRadmon)
-    // {
+    if (config.debugRadmon) {
       Serial.print("sent: ");
       Serial.print(readings[1]);
       Serial.println(" CPM");
-    // }
+    }
     clientGet.println("GET " + urlGet + " HTTP/1.1");
     if (config.debugRadmon) {
       Serial.println("GET " + urlGet + " HTTP/1.1");
